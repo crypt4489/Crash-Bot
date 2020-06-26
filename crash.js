@@ -101,17 +101,7 @@ client.on('message', msg => {
     }
 });
 
-const job = new CronJob('00 20 16 * * *', function() {
-    client.channels.fetch(process.env.GENERAL_ID)
-        .then(channel => {
-            channel.send("happy 420! @everyone");
-            getRandomImage(channel);
-        })
-        .catch(console.error);
-    
-})
 
-//job.start();
 
 function showImage(channel, tag) {
     const path = ".\\images\\".concat(filePrefix).concat(tag).concat(".gif");
